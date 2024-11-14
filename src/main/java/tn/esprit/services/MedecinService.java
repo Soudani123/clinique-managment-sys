@@ -24,7 +24,7 @@ public class MedecinService implements MedService {
 
         if (cliniqueOptional.isPresent()) {
             Clinique clinique = cliniqueOptional.get();
-
+System.out.println("medecin.getCliniques()---------------" + medecin.getCliniques());
             medecin.getCliniques().add(clinique);
         } else {
             throw new NoSuchElementException("Clinique pas enregisteré");

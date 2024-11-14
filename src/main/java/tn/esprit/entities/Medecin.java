@@ -1,11 +1,15 @@
 package tn.esprit.entities;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.apache.logging.log4j.util.Lazy;
 
+import javax.swing.*;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -22,7 +26,8 @@ public class Medecin {
     private int prixConsultation;
 
     @ManyToMany
-    private List<Clinique> cliniques;
+    @JsonIgnore
+    private List<Clinique> cliniques= new ArrayList<>();
 
     @OneToMany(mappedBy = "medecin")
     private List<RendezVous> rendezVous;

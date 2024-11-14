@@ -25,7 +25,7 @@ public class RDVService {
     @Autowired
     PatientRepo patientRepo;
 
-    public Void addRDVAndAssignMedAndPatient(RendezVous rdv, Long idMedecin, Long idPatient) {
+    public RendezVous addRDVAndAssignMedAndPatient( Long idMedecin, Long idPatient, RendezVous rdv) {
         Optional<Medecin> medecinOptional = medRepo.findById(idMedecin);
         Optional<Patient> patientOptional = patientRepo.findById(idPatient);
 
@@ -40,7 +40,7 @@ public class RDVService {
         } else {
             throw new NoSuchElementException("Medecin ou Patient pas enregistreés ");
         }
-        return null;
+       return null;
     }
 
 

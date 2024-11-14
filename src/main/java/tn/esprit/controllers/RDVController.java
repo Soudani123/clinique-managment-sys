@@ -15,9 +15,11 @@ public class RDVController {
     @Autowired
     RDVService rdvService;
 
-    @PostMapping("/addRDVAndAssignMedAndPatient/{idMedecin}/{idPatient}")
-    public Void addRDVAndAssignMedAndPatient(@RequestBody RendezVous rdv, @PathVariable Long idMedecin, @PathVariable Long idPatient) {
-        return rdvService.addRDVAndAssignMedAndPatient( rdv,idMedecin, idPatient);
+    @PostMapping("/addRDVAndAssignMedAndPatient/{medecinId}/{patientId}")
+    public RendezVous addRDVAndAssignMedAndPatient(@PathVariable Long medecinId,
+                                                   @PathVariable Long patientId,
+                                                   @RequestBody RendezVous rendezVous) {
+         return rdvService.addRDVAndAssignMedAndPatient(medecinId, patientId, rendezVous);
     }
 
     @GetMapping("/getRendezVousByCliniqueAndSpecialite/{idClinique}")
